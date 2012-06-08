@@ -17,12 +17,12 @@ def chainSeq(start:Int,funcs:List[Int=>Int]):List[Int] = funcs match {
 
 def contiguousSeq(xs:List[Int]):List[Int]=xs match { 
   case Nil => Nil 
-  case x => (x.head to x.last).toList 
+  case _ => (xs.head to xs.last).toList 
 } 
 
 def circleSeq(pattern:List[String],times:Int):List[String] = times match { 
   case x if x <= 0 => Nil 
-  case x => pattern ::: circleSeq(pattern,x-1) 
+  case _ => pattern ::: circleSeq(pattern,times-1) 
 } 
 
 def lookUpPattern(base:Seq[String],target:Seq[String]) = { 
@@ -35,7 +35,7 @@ def lookUpPattern(base:Seq[String],target:Seq[String]) = {
 
 def shortestSeq(xss:Traversable[Traversable[Int]]) = xss match { 
   case Nil => None 
-  case yss => Some(xss.minBy(_.size))
+  case _ => Some(xss.minBy(_.size))
 }
 
 val fizzBuzzPattern = List("fizz", "buzz", "fizz", "fizz", "buzz", "fizz","fizzbuzz") 
